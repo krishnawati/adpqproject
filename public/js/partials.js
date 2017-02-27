@@ -170,6 +170,54 @@ try {
   module = angular.module('app.partials', []);
 }
 module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('./views/app/components/dashboard/dashboard.component.html',
+    '<section class="content" data-ng-init="init()">\n' +
+    '\n' +
+    '<h1>California Emergency Services</h1>\n' +
+    '\n' +
+    '    \n' +
+    '       <div ng-app="ng-map">\n' +
+    '        <ng-map default-style="true" center="current-location" zoom="14">\n' +
+    '          <info-window position="current-location">\n' +
+    '            <span>Loation found using HTML5.</span>\n' +
+    '          </info-window>\n' +
+    '           <shape name="circle" ng-repeat="city in vm.cities" no-watcher="true"\n' +
+    '            stroke-color="#FF0000"\n' +
+    '            stroke-opacity="0.8"\n' +
+    '            stroke-weight="2"\n' +
+    '            fill-color="#FF0000"\n' +
+    '            fill-opacity="0.35"\n' +
+    '            center="{{city.position}}"\n' +
+    '            radius="{{vm.getRadius(25)}}">\n' +
+    '          </shape>\n' +
+    '        </ng-map>\n' +
+    '    </div>\n' +
+    '\n' +
+    '\n' +
+    '        \n' +
+    '<div class="container">               \n' +
+    '   <label for="repeatSelect"> <h3> Select a range to get Notifications in your area: </h2></label>\n' +
+    '    <select name="repeatSelect" id="repeatSelect" ng-model="data.model">\n' +
+    '      <option ng-repeat="option in data.availableOptions" value="{{option.name}}">{{option.name}}</option>\n' +
+    '    </select>\n' +
+    '</div>\n' +
+    '<h3> \n' +
+    '<button ng-click="submit()" class="btn btn-primary">\n' +
+    '  Submit\n' +
+    '</button>\n' +
+    '\n' +
+    '</section>\n' +
+    '');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('app.partials');
+} catch (e) {
+  module = angular.module('app.partials', []);
+}
+module.run(['$templateCache', function($templateCache) {
   $templateCache.put('./views/app/components/forgot-password/forgot-password.component.html',
     '<form ng-submit="vm.submit()" class="ForgotPassword-form" name="vm.forgotPasswordForm" novalidate>\n' +
     '  <div class="callout callout-danger" ng-if="vm.errorTrigger">\n' +
@@ -191,163 +239,6 @@ module.run(['$templateCache', function($templateCache) {
     '    </div>\n' +
     '  </div>\n' +
     '</form>\n' +
-    '');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('app.partials');
-} catch (e) {
-  module = angular.module('app.partials', []);
-}
-module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('./views/app/components/dashboard/dashboard.component.html',
-    '<section class="content">\n' +
-    '  <div class="row">\n' +
-    '    <div class="col-md-3 col-sm-6 col-xs-12">\n' +
-    '      <div class="info-box">\n' +
-    '        <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>\n' +
-    '        <div class="info-box-content">\n' +
-    '          <span class="info-box-text">{{coords}}</span>\n' +
-    '          <span class="info-box-number">90<small>%</small></span>\n' +
-    '        </div>\n' +
-    '      </div>\n' +
-    '    </div>\n' +
-    '    <div class="col-md-3 col-sm-6 col-xs-12">\n' +
-    '      <div class="info-box">\n' +
-    '        <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>\n' +
-    '        <div class="info-box-content">\n' +
-    '          <span class="info-box-text">Likes</span>\n' +
-    '          <span class="info-box-number">41,410</span>\n' +
-    '        </div>\n' +
-    '      </div>\n' +
-    '    </div>\n' +
-    '    <div class="clearfix visible-sm-block"></div>\n' +
-    '    <div class="col-md-3 col-sm-6 col-xs-12">\n' +
-    '      <div class="info-box">\n' +
-    '        <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>\n' +
-    '        <div class="info-box-content">\n' +
-    '          <span class="info-box-text">Sales</span>\n' +
-    '          <span class="info-box-number">760</span>\n' +
-    '        </div>\n' +
-    '      </div>\n' +
-    '    </div>\n' +
-    '    <div class="col-md-3 col-sm-6 col-xs-12">\n' +
-    '      <div class="info-box">\n' +
-    '        <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>\n' +
-    '        <div class="info-box-content">\n' +
-    '          <span class="info-box-text">New Members</span>\n' +
-    '          <span class="info-box-number">2,000</span>\n' +
-    '        </div>\n' +
-    '      </div>\n' +
-    '    </div>\n' +
-    '  </div>\n' +
-    '  <div class="row">\n' +
-    '    <div class="col-md-12">\n' +
-    '      <div class="box">\n' +
-    '        <div class="box-header with-border">\n' +
-    '          <h3 class="box-title">Monthly Recap Report</h3>\n' +
-    '          <div class="box-tools pull-right">\n' +
-    '            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>\n' +
-    '            </button>\n' +
-    '            <div class="btn-group">\n' +
-    '              <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">\n' +
-    '                <i class="fa fa-wrench"></i></button>\n' +
-    '              <ul class="dropdown-menu" role="menu">\n' +
-    '                <li><a href="#">Action</a></li>\n' +
-    '                <li><a href="#">Another action</a></li>\n' +
-    '                <li><a href="#">Something else here</a></li>\n' +
-    '                <li class="divider"></li>\n' +
-    '                <li><a href="#">Separated link</a></li>\n' +
-    '              </ul>\n' +
-    '            </div>\n' +
-    '            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>\n' +
-    '          </div>\n' +
-    '        </div>\n' +
-    '        <div class="box-body">\n' +
-    '          <div class="row">\n' +
-    '            <div class="col-md-8">\n' +
-    '              <p class="text-center">\n' +
-    '                <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>\n' +
-    '              </p>\n' +
-    '              <div class="chart">\n' +
-    '                <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-legend="false" chart-series="series" chart-click="onClick" style="height: 180px;">\n' +
-    '                </canvas>\n' +
-    '              </div>\n' +
-    '            </div>\n' +
-    '            <div class="col-md-4">\n' +
-    '              <p class="text-center">\n' +
-    '                <strong>Goal Completion</strong>\n' +
-    '              </p>\n' +
-    '              <div class="progress-group">\n' +
-    '                <span class="progress-text">Add Products to Cart</span>\n' +
-    '                <span class="progress-number"><b>160</b>/200</span>\n' +
-    '                <div class="progress sm">\n' +
-    '                  <div class="progress-bar progress-bar-aqua" style="width: 80%"></div>\n' +
-    '                </div>\n' +
-    '              </div>\n' +
-    '              <div class="progress-group">\n' +
-    '                <span class="progress-text">Complete Purchase</span>\n' +
-    '                <span class="progress-number"><b>310</b>/400</span>\n' +
-    '                <div class="progress sm">\n' +
-    '                  <div class="progress-bar progress-bar-red" style="width: 80%"></div>\n' +
-    '                </div>\n' +
-    '              </div>\n' +
-    '              <div class="progress-group">\n' +
-    '                <span class="progress-text">Visit Premium Page</span>\n' +
-    '                <span class="progress-number"><b>480</b>/800</span>\n' +
-    '                <div class="progress sm">\n' +
-    '                  <div class="progress-bar progress-bar-green" style="width: 80%"></div>\n' +
-    '                </div>\n' +
-    '              </div>\n' +
-    '              <div class="progress-group">\n' +
-    '                <span class="progress-text">Send Inquiries</span>\n' +
-    '                <span class="progress-number"><b>250</b>/500</span>\n' +
-    '                <div class="progress sm">\n' +
-    '                  <div class="progress-bar progress-bar-yellow" style="width: 80%"></div>\n' +
-    '                </div>\n' +
-    '              </div>\n' +
-    '            </div>\n' +
-    '          </div>\n' +
-    '        </div>\n' +
-    '        <div class="box-footer">\n' +
-    '          <div class="row">\n' +
-    '            <div class="col-sm-3 col-xs-6">\n' +
-    '              <div class="description-block border-right">\n' +
-    '                <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>\n' +
-    '                <h5 class="description-header">$35,210.43</h5>\n' +
-    '                <span class="description-text">TOTAL REVENUE</span>\n' +
-    '              </div>\n' +
-    '            </div>\n' +
-    '            <div class="col-sm-3 col-xs-6">\n' +
-    '              <div class="description-block border-right">\n' +
-    '                <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>\n' +
-    '                <h5 class="description-header">$10,390.90</h5>\n' +
-    '                <span class="description-text">TOTAL COST</span>\n' +
-    '              </div>\n' +
-    '            </div>\n' +
-    '            <div class="col-sm-3 col-xs-6">\n' +
-    '              <div class="description-block border-right">\n' +
-    '                <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 20%</span>\n' +
-    '                <h5 class="description-header">$24,813.53</h5>\n' +
-    '                <span class="description-text">TOTAL PROFIT</span>\n' +
-    '              </div>\n' +
-    '            </div>\n' +
-    '            <div class="col-sm-3 col-xs-6">\n' +
-    '              <div class="description-block">\n' +
-    '                <span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 18%</span>\n' +
-    '                <h5 class="description-header">1200</h5>\n' +
-    '                <span class="description-text">GOAL COMPLETIONS</span>\n' +
-    '              </div>\n' +
-    '            </div>\n' +
-    '          </div>\n' +
-    '        </div>\n' +
-    '      </div>\n' +
-    '    </div>\n' +
-    '  </div>\n' +
-    ' \n' +
-    '</section>\n' +
     '');
 }]);
 })();

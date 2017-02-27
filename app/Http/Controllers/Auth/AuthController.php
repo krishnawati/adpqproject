@@ -109,10 +109,11 @@ class AuthController extends Controller
         if ($authUser = User::where('oauth_provider_id', $oauthUser->getId())->where('oauth_provider', '=', $provider)->first()) {
             return $authUser;
         }
-
+        
         return User::create([
             'name' => $oauthUser->name,
             'email' => $oauthUser->email,
+            'password' =>$oauthUser->password,
             'oauth_provider' => $provider,
             'oauth_provider_id' => $oauthUser->getId(),
             'avatar' => $oauthUser->avatar,
