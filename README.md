@@ -12,12 +12,12 @@ http://ec2-52-42-66-95.us-west-2.compute.amazonaws.com/
 #WATI’s Technical Approach for Agile Development Pre-Qualified Vendor Pool for Digital Services
 West Advanced Technologies, Inc. (WATI), chose the Prototype B option to develop a California Express Alert System for Emergencies (CEASE), using Agile methodologies.
 WATI, with its prior experience in developing applications using Agile-Scrum methodology for public sector agencies, has used several Agile practices during this short sprint cycle including:
-•	Sprint backlog;
-•	Continuous Integration;
-•	Iterative and Incremental Development;
-•	Refactoring;
-•	Timeboxing; and,
-•	User story / User Story mapping.
+    •	Sprint backlog;
+    •	Continuous Integration;
+    •	Iterative and Incremental Development;
+    •	Refactoring;
+    •	Timeboxing; and,
+    •	User story / User Story mapping.
 
 The methodologies used are fully comply with US Digital services playbook and are further detailed in the Github repository https://github.com/krishnawati/adpqproject
 
@@ -28,23 +28,23 @@ The application provides Users to
 •	Create a user profile page with location and contact information
 •	Show data from Earthquakes (USGS) 
 
-o	http://sampleserver3.arcgisonline.com/arcgis/rest/services/Earthquakes/EarthquakesFromLastSeven
+    o	http://sampleserver3.arcgisonline.com/arcgis/rest/services/Earthquakes/EarthquakesFromLastSeven
 •	To select event types they want to receive alerts for, within a specific vicinity
 •	Choose  methods of communication 
-o	Email interface
-o	SMS interface (not implemented)
-o	Automated phone call (not implemented)
+    o	Email interface
+    o	SMS interface (not implemented)
+    o	Automated phone call (not implemented)
 
 The application has logic to polling service to get data from ESRI GIS in xml and has logic to match all the people who registered depending on the events type, location and vicinity.  For the selected users the application sends out emails to all the matching registrants. The application sends alerts only for a new event and not for previously generated notified events. Additionally there is an admin screen for showing events selected for registered users and managing the users.
 
 #The Team
 WATI has assembled a multidisciplinary and collaborative team:
-•	Subramanyam (Subra) Vaddi, PMP, CSM – Product Manager (Scrum Master)
-•	Vaibhav Kotla - Front End Web Developer
-•	Rohit K – DevOps Engineer
-•	Achaya Ramaswamy - Backend Web Developer
-•	Nagesh K - 
-•	Krishna Chintalapathi – Interaction Designer/User Researcher/Usability Tester (Product Owner)
+    •	Subramanyam (Subra) Vaddi, PMP, CSM – Product Manager (Scrum Master)
+    •	Vaibhav Kotla - Front End Web Developer
+    •	Rohit K – DevOps Engineer
+    •	Achaya Ramaswamy - Backend Web Developer
+    •	Nagesh K - 
+    •	Krishna Chintalapathi – Interaction Designer/User Researcher/Usability Tester (Product Owner)
 
 WATI assigned Subra Vaddi as the leader and gave that authority and responsibility and for development of CEASE prototype that is submitted in Github.   Subra conducted daily Scrums and created new user stories and bugs based on feedback and usability testing. We held Sprint Reviews and Retrospectives and incorporated feedback into the iterative development.
 
