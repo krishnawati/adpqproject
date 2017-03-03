@@ -8,6 +8,7 @@ php artisan serve
 
 http://ec2-52-42-66-95.us-west-2.compute.amazonaws.com/
 
+ adpqproject/logo.JPG 
  
 #WATI’s Technical Approach for Agile Development Pre-Qualified Vendor Pool for Digital Services
 West Advanced Technologies, Inc. (WATI), chose the Prototype B option to develop a California Express Alert System for Emergencies (CEASE), using Agile methodologies.
@@ -65,6 +66,8 @@ The prototype is created using all open source technologies, including
 •	Laravel framework in PHP for developing business logic. 
 The prototype follows responsive design that works on multiple devices including Laptop, Tablet and Smart phones.
 •	The database developed in MySQL database contains the following table sets that were designed initially during the design sessions.
+
+ adpqproject/databaseDesign.JPG 
 
  
 delivering early and often, which our engineers did by using responsive design pattern libraries to build components. Our approach was to get a minimum viable product (MVP) as quickly as possible to test it with users.
