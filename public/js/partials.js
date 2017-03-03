@@ -173,39 +173,41 @@ module.run(['$templateCache', function($templateCache) {
   $templateCache.put('./views/app/components/dashboard/dashboard.component.html',
     '<section class="content" data-ng-init="init()">\n' +
     '\n' +
-    '<h1>California Emergency Services</h1>\n' +
+    '<h1>California Emergency Services - Registration</h1>\n' +
     '\n' +
-    '    \n' +
-    '       <div ng-app="ng-map">\n' +
-    '        <ng-map default-style="true" center="current-location" zoom="14">\n' +
-    '          <info-window position="current-location">\n' +
-    '            <span>Loation found using HTML5.</span>\n' +
-    '          </info-window>\n' +
-    '           <shape name="circle" ng-repeat="city in vm.cities" no-watcher="true"\n' +
-    '            stroke-color="#FF0000"\n' +
-    '            stroke-opacity="0.8"\n' +
-    '            stroke-weight="2"\n' +
-    '            fill-color="#FF0000"\n' +
-    '            fill-opacity="0.35"\n' +
-    '            center="{{city.position}}"\n' +
-    '            radius="{{vm.getRadius(25)}}">\n' +
-    '          </shape>\n' +
-    '        </ng-map>\n' +
-    '    </div>\n' +
-    '\n' +
+    '  \n' +
+    '      \n' +
+    '          \n' +
     '\n' +
     '        \n' +
     '<div class="container">               \n' +
-    '   <label for="repeatSelect"> <h3> Select a range to get Notifications in your area: </h2></label>\n' +
+    '   <label for="repeatSelect"> <h3> Select a mile range to get Notifications in your area: </h2></label>\n' +
     '    <select name="repeatSelect" id="repeatSelect" ng-model="data.model">\n' +
     '      <option ng-repeat="option in data.availableOptions" value="{{option.name}}">{{option.name}}</option>\n' +
     '    </select>\n' +
+    '  </h3>\n' +
+    '  </label>\n' +
+    '    \n' +
+    '\n' +
     '</div>\n' +
-    '<h3> \n' +
+    '<div class="container">\n' +
+    ' <label for="repeatSelect"> <h3> Select which notifications do you want? </h2></label>\n' +
+    '    <select name="repeatSelect" id="repeatSelect" ng-model="data2.model">\n' +
+    '      <option ng-repeat="option in data2.factors" value="{{option.name}}">{{option.name}}</option>\n' +
+    '    </select>\n' +
+    '    </h3>\n' +
+    '    </label>\n' +
+    '    </div>\n' +
+    '  <div class="container">\n' +
     '<button ng-click="submit()" class="btn btn-primary">\n' +
-    '  Submit\n' +
+    '  Register\n' +
     '</button>\n' +
     '\n' +
+    '</div>\n' +
+    '<div class="container">\n' +
+    '<br>\n' +
+    '{{temp}}\n' +
+    '</div>\n' +
     '</section>\n' +
     '');
 }]);
@@ -616,9 +618,6 @@ module.run(['$templateCache', function($templateCache) {
     '</form>\n' +
     '<div class="social-auth-links text-center">\n' +
     '  <p>- OR -</p>\n' +
-    '  <a href="/auth/github" class="btn btn-block btn-social btn-github btn-flat">\n' +
-    '    <i class="fa fa-github"></i> Sign in using Github\n' +
-    '  </a>\n' +
     '  <a href="/auth/google" class="btn btn-block btn-social btn-google btn-flat">\n' +
     '    <i class="fa fa-google"></i> Sign in using Google+\n' +
     '  </a>\n' +
@@ -679,10 +678,10 @@ module.run(['$templateCache', function($templateCache) {
     '\n' +
     '          <a href="#" class="dropdown-toggle" data-toggle="dropdown" uib-dropdown-toggle>\n' +
     '            <i class="fa fa-envelope-o"></i>\n' +
-    '            <span class="label label-success">4</span>\n' +
+    '            <span class="label label-success">2</span>\n' +
     '          </a>\n' +
     '          <ul class="dropdown-menu" uib-dropdown-menu>\n' +
-    '            <li class="header">You have 4 messages</li>\n' +
+    '            <li class="header">You have 2 messages</li>\n' +
     '            <li>\n' +
     '              <ul class="menu">\n' +
     '                <li>\n' +
@@ -691,60 +690,26 @@ module.run(['$templateCache', function($templateCache) {
     '                      <img src="/img/user2-160x160.jpg" class="img-circle" alt="User Image">\n' +
     '                    </div>\n' +
     '                    <h4>\n' +
-    '                      Support Team\n' +
+    '                     Wati Support\n' +
     '                      <small><i class="fa fa-clock-o"></i> 5 mins</small>\n' +
     '                    </h4>\n' +
-    '                    <p>Why not buy a new awesome theme?</p>\n' +
+    '                    <p>Developing with WATI?</p>\n' +
     '                  </a>\n' +
     '                </li>\n' +
+    '            \n' +
     '                <li>\n' +
     '                  <a href="#">\n' +
     '                    <div class="pull-left">\n' +
     '                      <img src="/img/user3-128x128.jpg" class="img-circle" alt="User Image">\n' +
     '                    </div>\n' +
     '                    <h4>\n' +
-    '                      AdminLTE Design Team\n' +
-    '                      <small><i class="fa fa-clock-o"></i> 2 hours</small>\n' +
-    '                    </h4>\n' +
-    '                    <p>Why not buy a new awesome theme?</p>\n' +
-    '                  </a>\n' +
-    '                </li>\n' +
-    '                <li>\n' +
-    '                  <a href="#">\n' +
-    '                    <div class="pull-left">\n' +
-    '                      <img src="/img/user4-128x128.jpg" class="img-circle" alt="User Image">\n' +
-    '                    </div>\n' +
-    '                    <h4>\n' +
-    '                      Developers\n' +
+    '                      Wati Team\n' +
     '                      <small><i class="fa fa-clock-o"></i> Today</small>\n' +
     '                    </h4>\n' +
-    '                    <p>Why not buy a new awesome theme?</p>\n' +
+    '                    <p>Develop with WATI?</p>\n' +
     '                  </a>\n' +
     '                </li>\n' +
-    '                <li>\n' +
-    '                  <a href="#">\n' +
-    '                    <div class="pull-left">\n' +
-    '                      <img src="/img/user3-128x128.jpg" class="img-circle" alt="User Image">\n' +
-    '                    </div>\n' +
-    '                    <h4>\n' +
-    '                      Sales Department\n' +
-    '                      <small><i class="fa fa-clock-o"></i> Yesterday</small>\n' +
-    '                    </h4>\n' +
-    '                    <p>Why not buy a new awesome theme?</p>\n' +
-    '                  </a>\n' +
-    '                </li>\n' +
-    '                <li>\n' +
-    '                  <a href="#">\n' +
-    '                    <div class="pull-left">\n' +
-    '                      <img src="/img/user4-128x128.jpg" class="img-circle" alt="User Image">\n' +
-    '                    </div>\n' +
-    '                    <h4>\n' +
-    '                      Reviewers\n' +
-    '                      <small><i class="fa fa-clock-o"></i> 2 days</small>\n' +
-    '                    </h4>\n' +
-    '                    <p>Why not buy a new awesome theme?</p>\n' +
-    '                  </a>\n' +
-    '                </li>\n' +
+    '                \n' +
     '              </ul>\n' +
     '            </li>\n' +
     '            <li class="footer"><a href="#">See All Messages</a></li>\n' +
@@ -753,37 +718,23 @@ module.run(['$templateCache', function($templateCache) {
     '        <li class="dropdown notifications-menu" uib-dropdown>\n' +
     '          <a href="#" class="dropdown-toggle" data-toggle="dropdown" uib-dropdown-toggle>\n' +
     '            <i class="fa fa-bell-o"></i>\n' +
-    '            <span class="label label-warning">10</span>\n' +
+    '            <span class="label label-warning">1</span>\n' +
     '          </a>\n' +
     '          <ul class="dropdown-menu" uib-dropdown-menu>\n' +
-    '            <li class="header">You have 10 notifications</li>\n' +
+    '            <li class="header">You have 1 notification</li>\n' +
     '            <li>\n' +
     '              <ul class="menu">\n' +
     '                <li>\n' +
     '                  <a href="#">\n' +
-    '                    <i class="fa fa-users text-aqua"></i> 5 new members joined today\n' +
+    '                    <i class="fa fa-users text-aqua"></i>new members joined today\n' +
     '                  </a>\n' +
     '                </li>\n' +
     '                <li>\n' +
     '                  <a href="#">\n' +
-    '                    <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems\n' +
+    '                    <i class="fa fa-warning text-yellow"></i> WATI Welcomes you\n' +
     '                  </a>\n' +
     '                </li>\n' +
-    '                <li>\n' +
-    '                  <a href="#">\n' +
-    '                    <i class="fa fa-users text-red"></i> 5 new members joined\n' +
-    '                  </a>\n' +
-    '                </li>\n' +
-    '                <li>\n' +
-    '                  <a href="#">\n' +
-    '                    <i class="fa fa-shopping-cart text-green"></i> 25 sales made\n' +
-    '                  </a>\n' +
-    '                </li>\n' +
-    '                <li>\n' +
-    '                  <a href="#">\n' +
-    '                    <i class="fa fa-user text-red"></i> You changed your username\n' +
-    '                  </a>\n' +
-    '                </li>\n' +
+    '              \n' +
     '              </ul>\n' +
     '            </li>\n' +
     '            <li class="footer"><a href="#">View all</a></li>\n' +
@@ -792,64 +743,27 @@ module.run(['$templateCache', function($templateCache) {
     '        <li class="dropdown tasks-menu" uib-dropdown>\n' +
     '          <a href="#" class="dropdown-toggle" uib-dropdown-toggle>\n' +
     '            <i class="fa fa-flag-o"></i>\n' +
-    '            <span class="label label-danger">9</span>\n' +
+    '            <span class="label label-danger">1</span>\n' +
     '          </a>\n' +
     '          <ul class="dropdown-menu" uib-dropdown-menu>\n' +
-    '            <li class="header">You have 9 tasks</li>\n' +
+    '            <li class="header">You have 1 tasks</li>\n' +
     '            <li>\n' +
     '              <ul class="menu">\n' +
+    '                \n' +
     '                <li>\n' +
     '                  <a href="#">\n' +
     '                    <h3>\n' +
-    '                      Design some buttons\n' +
-    '                      <small class="pull-right">20%</small>\n' +
+    '                      Tasks for you\n' +
+    '                      <small class="pull-right">70%</small>\n' +
     '                    </h3>\n' +
     '                    <div class="progress xs">\n' +
-    '                      <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">\n' +
-    '                        <span class="sr-only">20% Complete</span>\n' +
+    '                      <div class="progress-bar progress-bar-red" style="width: 70%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">\n' +
+    '                        <span class="sr-only">70% Complete</span>\n' +
     '                      </div>\n' +
     '                    </div>\n' +
     '                  </a>\n' +
     '                </li>\n' +
-    '                <li>\n' +
-    '                  <a href="#">\n' +
-    '                    <h3>\n' +
-    '                      Create a nice theme\n' +
-    '                      <small class="pull-right">40%</small>\n' +
-    '                    </h3>\n' +
-    '                    <div class="progress xs">\n' +
-    '                      <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">\n' +
-    '                        <span class="sr-only">40% Complete</span>\n' +
-    '                      </div>\n' +
-    '                    </div>\n' +
-    '                  </a>\n' +
-    '                </li>\n' +
-    '                <li>\n' +
-    '                  <a href="#">\n' +
-    '                    <h3>\n' +
-    '                      Some task I need to do\n' +
-    '                      <small class="pull-right">60%</small>\n' +
-    '                    </h3>\n' +
-    '                    <div class="progress xs">\n' +
-    '                      <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">\n' +
-    '                        <span class="sr-only">60% Complete</span>\n' +
-    '                      </div>\n' +
-    '                    </div>\n' +
-    '                  </a>\n' +
-    '                </li>\n' +
-    '                <li>\n' +
-    '                  <a href="#">\n' +
-    '                    <h3>\n' +
-    '                      Make beautiful transitions\n' +
-    '                      <small class="pull-right">80%</small>\n' +
-    '                    </h3>\n' +
-    '                    <div class="progress xs">\n' +
-    '                      <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">\n' +
-    '                        <span class="sr-only">80% Complete</span>\n' +
-    '                      </div>\n' +
-    '                    </div>\n' +
-    '                  </a>\n' +
-    '                </li>\n' +
+    '                \n' +
     '              </ul>\n' +
     '            </li>\n' +
     '            <li class="footer">\n' +
@@ -954,12 +868,6 @@ module.run(['$templateCache', function($templateCache) {
     '        </ul>\n' +
     '      </li>\n' +
     '     \n' +
-    '      <li>\n' +
-    '        <a ui-sref="app.widgets">\n' +
-    '          <i class="fa fa-th"></i> <span>Widgets</span>\n' +
-    '          <small class="label pull-right bg-green">new</small>\n' +
-    '        </a>\n' +
-    '      </li>\n' +
     '     \n' +
     '    \n' +
     '    </ul>\n' +
@@ -6725,7 +6633,7 @@ module.run(['$templateCache', function($templateCache) {
   $templateCache.put('./views/app/pages/user-verification/user-verification.page.html',
     '<div class="login-box">\n' +
     '  <div class="login-logo">\n' +
-    '    <a ui-sref="login"><b>Admin</b>LTE</a>\n' +
+    '    <a ui-sref="login">WATI- CAlifornia Emergency Services</a>\n' +
     '  </div>\n' +
     '  <div class="login-box-body">\n' +
     '    <user-verification></user-verification>\n' +

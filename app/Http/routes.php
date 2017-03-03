@@ -32,6 +32,7 @@ $api->group(['middleware' => ['api']], function ($api) {
 $api->group(['middleware' => ['api', 'api.auth']], function ($api) {
     $api->get('users/me', 'UserController@getMe');
     $api->put('users/me', 'UserController@putMe');
+    $api->post('users/dashboard-ces','UserController@DashboardCES');
 });
 
 $api->group(['middleware' => ['api', 'api.auth', 'role:admin.super|admin.user']], function ($api) {

@@ -106,14 +106,14 @@ class AuthController extends Controller
      */
     private function findOrCreateUser($oauthUser, $provider)
     {
-        if ($authUser = User::where('oauth_provider_id', $oauthUser->getId())->where('oauth_provider', '=', $provider)->first()) {
-            return $authUser;
+        if ($oauthUser = User::where('oauth_provider_id', $oauthUser->getId())->where('oauth_provider', '=', $provider)->first()) {
+            return $oauthUser;
         }
-        
+         $pass =  bcrypt(str_random());
         return User::create([
             'name' => $oauthUser->name,
             'email' => $oauthUser->email,
-            'password' =>$oauthUser->password,
+            'password' =>$pass,
             'oauth_provider' => $provider,
             'oauth_provider_id' => $oauthUser->getId(),
             'avatar' => $oauthUser->avatar,

@@ -12,7 +12,7 @@
 
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <title>California Emergency Services</title>
+    <title>Laravel Angular Admin-LTE</title>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -25,8 +25,8 @@
         <div ui-view="layout"></div>
         <div class="control-sidebar-bg"></div>
     </div>
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBqSn8qTbAbTjefGxMtL8jZy9Q_hEDCK88"></script> 
-  
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+    
     <script src="{!! elixir('js/final.js') !!}" async defer></script>
 </body>
 </html>

@@ -10,6 +10,7 @@ use Hash;
 use Illuminate\Http\Request;
 use Input;
 use Validator;
+use Mail;
 
 class UserController extends Controller
 {
@@ -323,4 +324,48 @@ class UserController extends Controller
 
         return response()->success('success');
     }
+
+
+     public function DashboardCES(Request $request) {
+        $user = Auth::user();
+         $mailname = $user['email'];
+           
+
+        $postData = '';
+        $postData="f=pjson&layers=0&searchText=california";
+
+        $ch = curl_init();
+        $url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Earthquakes/EarthquakesFromLastSevenDays/MapServer/find";
+        
+        //set the url, number of POST vars, POST data
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/x-www-form-urlencoded'));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+        curl_setopt($ch, CURLOPT_POST, TRUE);
+
+        //execute post
+        $result = curl_exec($ch);
+        
+        $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        //close connection
+        curl_close($ch);
+        //var_dump($result);
+        var_dump($mailname);
+        if ($httpcode == 200) {
+            $res=json_decode($result,true);
+            
+            $sendmail=Mail::send('emails.dashboardces', $res, function ($message) use ($mailname)  {
+            $message->from('vaibhav.k@wati.com', 'Vaibhav K');
+            $message->to($mailname)->subject('California Emergency Services');
+            return $mailname;
+        });
+   
+        }
+        else{
+            echo "Failed";
+        }
+}
+
 }

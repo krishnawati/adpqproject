@@ -1,36 +1,38 @@
 <section class="content" data-ng-init="init()">
 
-<h1>California Emergency Services</h1>
+<h1>California Emergency Services - Registration</h1>
 
-    
-       <div ng-app="ng-map">
-        <ng-map default-style="true" center="current-location" zoom="14">
-          <info-window position="current-location">
-            <span>Loation found using HTML5.</span>
-          </info-window>
-           <shape name="circle" ng-repeat="city in vm.cities" no-watcher="true"
-            stroke-color="#FF0000"
-            stroke-opacity="0.8"
-            stroke-weight="2"
-            fill-color="#FF0000"
-            fill-opacity="0.35"
-            center="{{city.position}}"
-            radius="{{vm.getRadius(25)}}">
-          </shape>
-        </ng-map>
-    </div>
-
+  
+      
+          
 
         
 <div class="container">               
-   <label for="repeatSelect"> <h3> Select a range to get Notifications in your area: </h2></label>
+   <label for="repeatSelect"> <h3> Select a mile range to get Notifications in your area: </h2></label>
     <select name="repeatSelect" id="repeatSelect" ng-model="data.model">
       <option ng-repeat="option in data.availableOptions" value="{{option.name}}">{{option.name}}</option>
     </select>
+  </h3>
+  </label>
+    
+
 </div>
-<h3> 
+<div class="container">
+ <label for="repeatSelect"> <h3> Select which notifications do you want? </h2></label>
+    <select name="repeatSelect" id="repeatSelect" ng-model="data2.model">
+      <option ng-repeat="option in data2.factors" value="{{option.name}}">{{option.name}}</option>
+    </select>
+    </h3>
+    </label>
+    </div>
+  <div class="container">
 <button ng-click="submit()" class="btn btn-primary">
-  Submit
+  Register
 </button>
 
+</div>
+<div class="container">
+<br>
+{{temp}}
+</div>
 </section>
