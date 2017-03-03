@@ -13,12 +13,12 @@ http://ec2-52-42-66-95.us-west-2.compute.amazonaws.com/
 #WATI’s Technical Approach for Agile Development Pre-Qualified Vendor Pool for Digital Services
 West Advanced Technologies, Inc. (WATI), chose the Prototype B option to develop a California Express Alert System for Emergencies (CEASE), using Agile methodologies.
 WATI, with its prior experience in developing applications using Agile-Scrum methodology for public sector agencies, has used several Agile practices during this short sprint cycle including:
-    •	Sprint backlog;
-    •	Continuous Integration;
-    •	Iterative and Incremental Development;
-    •	Refactoring;
-    •	Timeboxing; and,
-    •	User story / User Story mapping.
+    *	Sprint backlog;
+    *	Continuous Integration;
+    *	Iterative and Incremental Development;
+    *	Refactoring;
+    *	Timeboxing; and,
+    *	User story / User Story mapping.
 
 The methodologies used are fully comply with US Digital services playbook and are further detailed in the Github repository https://github.com/krishnawati/adpqproject
 
